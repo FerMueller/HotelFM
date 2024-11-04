@@ -14,16 +14,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'creditcardadmin'`, () => {
+  it(`should have as title 'hoteladmin'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('creditcardadmin');
+    expect(app.title).toEqual('hoteldadmin');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('creditcardadmin app is running!');
+    expect(compiled.querySelector('.content span')?.textContent).toContain('hoteldmin app is running!');
   });
 });

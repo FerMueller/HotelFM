@@ -11,7 +11,7 @@ import { GuestService } from 'src/app/services/guest.service';
 })
 export class DeleteComponent {
 
-  creditCardId!: Number;
+  guestId!: Number;
 
   private destory$: Subject<void> = new Subject<void>();
 
@@ -19,11 +19,11 @@ export class DeleteComponent {
     private route: Router,
     private matSnackBar : MatSnackBar,
     private guestService: GuestService) {
-    this.creditCardId = parseInt(this.router.snapshot.paramMap.get("id") || ''
+    this.guestId = parseInt(this.router.snapshot.paramMap.get("id") || ''
     );
 
     // Delete Functionality
-    this.guestService.deleteGuest(this.creditCardId)
+    this.guestService.deleteGuest(this.guestId)
     .pipe(takeUntil(this.destory$))
     .subscribe(data => {
        this.showSuccessMessage("Guest Deleted Successfully"); 

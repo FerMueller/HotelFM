@@ -7,7 +7,7 @@ import { MatSort } from '@angular/material/sort';
 import { GuestService } from '../services/guest.service';
 
 @Component({
-  selector: 'app-creditcards',
+  selector: 'app-guest',
   templateUrl: './guest.component.html',
   styleUrls: ['./guest.component.scss']
 })
@@ -16,9 +16,6 @@ export class GuestComponent{
   guest: Guest[] = [];
   searchTerm: string = '';
   searchFilter: string = 'nome';
-
-  creditCardMaximumAmount: number = 0;
-  creditCardMaximumInterest: number = 0;
 
   constructor(private guestService: GuestService) {
     this.guestService.getGuests().subscribe((data:Guest[]) => {

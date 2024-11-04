@@ -26,8 +26,8 @@ export class DeleteComponent {
     this.bookingService.deleteBooking(this.bookingId)
     .pipe(takeUntil(this.destory$))
     .subscribe(data => {
-       this.showSuccessMessage("Credit Card Deleted Successfully"); 
-      this.route.navigate(['creditcards']);
+       this.showSuccessMessage("Booking Deleted Successfully"); 
+      this.route.navigate(['booking']);
     })
   }
 

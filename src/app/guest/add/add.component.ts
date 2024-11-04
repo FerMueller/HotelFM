@@ -17,7 +17,7 @@ export class AddComponent {
     private router: Router){
   }
 
-  newCreditCard: Guest = {
+  newGuest: Guest = {
     id: undefined,
     nome: "",
     documento: "",
@@ -27,7 +27,7 @@ export class AddComponent {
 
   
   saveGuest(){
-    this.subscription = this.guestService.createGuest(this.newCreditCard).subscribe(data => {
+    this.subscription = this.guestService.createGuest(this.newGuest).subscribe(data => {
       this.router.navigate(['guest']);
     })
   }

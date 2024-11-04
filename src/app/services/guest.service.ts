@@ -14,19 +14,17 @@ export class GuestService {
 
   // CRUD Functionality 
 
-  // Create New Credit Card
+  // Create New Guest
   createGuest(guest: Guest): Observable<Guest> {
-    //return this.httpClient.post<Guest>(this.apiUrl, guest);
     return this.apiService.post(this.apiUrl,guest)
   }
 
-  // Get All Credit Cards
+  // Get All Guests
   getGuests(): Observable<Guest[]>{
-    //return this.httpClient.get<Guest[]>(this.apiUrl); 
     return this.apiService.get(this.apiUrl)
   }
 
-  // Get Specific Credit Card
+  // Get Specific Guest
   getGuestById(id: Number): Observable<Guest> {
     const url = `${this.apiUrl}/${id}`;
     return this.apiService.get<Guest>(url);
@@ -45,30 +43,31 @@ export class GuestService {
   }
 
   findByName(name: string): Observable<Guest[]> {
-     const url = `${this.apiUrl}/buscar/nome?nome=${name}`;
+     const url = `${this.apiUrl}/find/name?nome=${name}`;
      return this.apiService.get<Guest>(url);
   }
 
-  // Buscar por documento
+  // Find by document
   findByDocument(documento: string): Observable<Guest[]> {
-    const url =`${this.apiUrl}/buscar/documento?documento=${documento}`;
+    const url =`${this.apiUrl}/find/document?documento=${documento}`;
     return this.apiService.get<Guest>(url);
   }
 
-  // Buscar por telefone
+  // Find by phone
   findbyPhone(telefone: string): Observable<Guest[]> {
-    const url = `${this.apiUrl}/buscar/telefone?telefone=${telefone}`;
+    const url = `${this.apiUrl}/find/phone?telefone=${telefone}`;
     return this.apiService.get<Guest>(url);
   }
 
-  // Listar hóspedes no hotel
+  // Find in Hotel
   inHotel(): Observable<Guest[]> {
-    const url =`${this.apiUrl}/no-hotel`;
+    const url =`${this.apiUrl}/in-hotel`;
     return this.apiService.get<Guest>(url);
   }
 
+  // Find without checkin
   listWithoutCheckin(): Observable<Guest[]> {
-    const url = `${this.apiUrl}/sem-checkin`;
+    const url = `${this.apiUrl}/without-checkin`;
     return this.apiService.get<Guest>(url);
   }
 

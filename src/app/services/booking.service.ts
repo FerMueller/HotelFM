@@ -17,13 +17,11 @@ export class BookingService {
 
   // Create New Booking
   createBooking(booking: Booking): Observable<Booking> {
-    //return this.httpClient.post<CreditCard>(this.apiUrl, creditCard);
     return this.apiService.post(this.apiUrl,booking)
   }
 
   // Get All Bookings
   getBookings(): Observable<Booking[]>{
-    //return this.httpClient.get<CreditCard[]>(this.apiUrl); 
     return this.apiService.get(this.apiUrl)
   }
 
