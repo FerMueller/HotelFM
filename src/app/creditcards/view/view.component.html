@@ -1,0 +1,15 @@
+<ng-container class="mat-card" *ngIf="creditCardDetails">
+    <mat-card class="example-card">
+        <mat-card-header>
+          <mat-card-title-group>
+            <mat-card-title>{{creditCardDetails.nome }}</mat-card-title>
+            <mat-card-subtitle>{{creditCardDetails.documento }}</mat-card-subtitle>
+          </mat-card-title-group>
+        </mat-card-header>
+        <mat-card-content>
+            <div><strong>CreditCard ID: </strong>{{creditCardDetails.id }}</div> 
+             <div><strong>Description</strong>{{creditCardDetails.telefone }}</div> 
+             <div><strong>Max Credit</strong>{{creditCardDetails.noHotel }} </div> 
+        </mat-card-content>
+      </mat-card>
+</ng-container>
