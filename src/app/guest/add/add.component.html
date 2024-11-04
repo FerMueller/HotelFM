@@ -1,0 +1,41 @@
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>Adicionar hóspede</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <form #guestForm="ngForm" (ngSubmit)="saveGuest()">
+            <div class="form-group">
+                <mat-form-field class="half-width">
+                    <label>Nome</label>
+                    <input matInput placeholder="Informe o nome do hópede" name="nome" [(ngModel)]="newCreditCard.nome" required minlength="3" maxlength="20">
+                    <mat-error *ngIf="guestForm.controls['nome']?.touched && guestForm.controls['nome']?.hasError('required')">Name is required</mat-error>
+                    <mat-error *ngIf="guestForm.controls['nome']?.touched && guestForm.controls['nome']?.hasError('minlength')">Name must have atleast 3 characters</mat-error>
+                    <mat-error *ngIf="guestForm.controls['nome']?.touched && guestForm.controls['nome']?.hasError('maxlength')">Name cannot be more than 20 characters</mat-error>
+                </mat-form-field> 
+            
+                <mat-form-field class="half-width">
+                    <label>Documento</label>
+                    <input matInput placeholder="Informe o documento" name="documento" [(ngModel)]="newCreditCard.documento" required minlength="3" maxlength="20" mask="000.000.000-00">
+                    <mat-error *ngIf="guestForm.controls['documento']?.touched && guestForm.controls['documento']?.hasError('required')">Bank Name is required</mat-error>
+                    <mat-error *ngIf="guestForm.controls['documento']?.touched && guestForm.controls['documento']?.hasError('minlength')">Bank Name must have atleast 3 characters</mat-error>
+                    <mat-error *ngIf="guestForm.controls['documento']?.touched && guestForm.controls['documento']?.hasError('maxlength')">Bank Name cannot be more than 20 characters</mat-error>
+                </mat-form-field>
+            </div>
+
+            <div class="form-group">
+                <mat-form-field class="full-width">
+                    <label>Telefone</label>
+                    <input matInput placeholder="Informe o telefone com DDD" name="telefone" [(ngModel)]="newCreditCard.telefone" required minlength="3" maxlength="20">
+                    <mat-error *ngIf="guestForm.controls['telefone']?.touched && guestForm.controls['telefone']?.hasError('required')">Bank Name is required</mat-error>
+                    <mat-error *ngIf="guestForm.controls['telefone']?.touched && guestForm.controls['telefone']?.hasError('minlength')">Bank Name must have atleast 3 characters</mat-error>
+                    <mat-error *ngIf="guestForm.controls['telefone']?.touched && guestForm.controls['telefone']?.hasError('maxlength')">Bank Name cannot be more than 20 characters</mat-error>
+                </mat-form-field>
+            </div>
+
+        <div class="form-group">
+            <button mat-raised-button color="primary" [disabled]="!guestForm.valid">Adicionar hóspede</button>
+        </div>
+
+        </form>
+    </mat-card-content>
+</mat-card>

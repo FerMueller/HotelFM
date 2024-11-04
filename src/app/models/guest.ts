@@ -1,4 +1,4 @@
-export interface CreditCard {
+export interface Guest {
     id: number | undefined;
     nome: string;
     documento: string;

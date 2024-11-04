@@ -2,9 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { Booking } from 'src/app/models/booking';
-import { CreditCard } from 'src/app/models/credit-card';
+import { Guest } from 'src/app/models/guest';
 import { BookingService } from 'src/app/services/booking.service';
-import { CreditcardsService } from 'src/app/services/creditcards.service';
+import { GuestService } from 'src/app/services/guest.service';
 
 @Component({
   selector: 'app-add',
@@ -13,11 +13,11 @@ import { CreditcardsService } from 'src/app/services/creditcards.service';
 })
 export class AddComponent implements OnInit{
 
-  hospedes: CreditCard[] = [];
+  hospedes: Guest[] = [];
   private subscription: Subscription | undefined;
 
   constructor(private bookingService :BookingService,
-    private router: Router, private hospedeService: CreditcardsService ){
+    private router: Router, private hospedeService: GuestService ){
   }
 
   newBooking: Booking = {
@@ -33,7 +33,7 @@ export class AddComponent implements OnInit{
   }
 
   loadGuests(): void {
-    this.hospedeService.getCreditCards().subscribe(data => {
+    this.hospedeService.getGuests().subscribe(data => {
       this.hospedes = data;
     });
   }

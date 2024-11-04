@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subject, takeUntil } from 'rxjs';
-import { CreditcardsService } from 'src/app/services/creditcards.service';
+import { GuestService } from 'src/app/services/guest.service';
 
 @Component({
   selector: 'app-delete',
@@ -18,16 +18,16 @@ export class DeleteComponent {
   constructor(private router: ActivatedRoute,
     private route: Router,
     private matSnackBar : MatSnackBar,
-    private creditcardsService: CreditcardsService) {
+    private guestService: GuestService) {
     this.creditCardId = parseInt(this.router.snapshot.paramMap.get("id") || ''
     );
 
     // Delete Functionality
-    this.creditcardsService.deleteCreditCard(this.creditCardId)
+    this.guestService.deleteGuest(this.creditCardId)
     .pipe(takeUntil(this.destory$))
     .subscribe(data => {
-       this.showSuccessMessage("Credit Card Deleted Successfully"); 
-      this.route.navigate(['creditcards']);
+       this.showSuccessMessage("Guest Deleted Successfully"); 
+      this.route.navigate(['guest']);
     })
   }
 

@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { CreditCard } from 'src/app/models/credit-card';
-import { CreditcardsService } from 'src/app/services/creditcards.service';
+import { Guest } from 'src/app/models/guest';
+import { GuestService } from 'src/app/services/guest.service';
 
 @Component({
   selector: 'app-add',
@@ -13,11 +13,11 @@ export class AddComponent {
 
   private subscription: Subscription | undefined;
 
-  constructor(private creditcardsService:CreditcardsService,
+  constructor(private guestService:GuestService,
     private router: Router){
   }
 
-  newCreditCard: CreditCard = {
+  newCreditCard: Guest = {
     id: undefined,
     nome: "",
     documento: "",
@@ -26,10 +26,9 @@ export class AddComponent {
   }
 
   
-  saveCreditCard(){
-    this.subscription = this.creditcardsService.createCreditCard(this.newCreditCard).subscribe(data => {
-      alert("Credit Card Added");
-      this.router.navigate(['creditcards']);
+  saveGuest(){
+    this.subscription = this.guestService.createGuest(this.newCreditCard).subscribe(data => {
+      this.router.navigate(['guest']);
     })
   }
 
